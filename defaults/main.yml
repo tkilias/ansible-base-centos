@@ -54,7 +54,7 @@ base_centos:
       - nmap
       - openssl
       - pkgconfig
-      - python-dev
+      - python-devel
       - python-setuptools
       - sqlite
       - swig
