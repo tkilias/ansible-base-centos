@@ -1,4 +1,4 @@
-Role Name
+base_centos
 ========
 
 A role to set up a base CentOS instance.
