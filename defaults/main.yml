@@ -26,26 +26,26 @@ base_centos:
       - graphviz
       - htop
       - kernel-devel
-      - libatk1.0-dev
-      - libbonoboui2-dev
-      - libbz2-dev
-      - libcairo2-dev
-      - libdbd-mysql-perl
-      - libdbi-perl
-      - libevent-dev
-      - libgeos-dev
-      - libgraphviz-dev
-      - liblzma-dev
-      - libncurses5-dev
-      - libpcre3-dev
-      - libreadline-dev
-      - libsqlite-dev
-      - libssl-dev
-      - libxml2-dev
-      - libxpm-dev
-      - libxslt1-dev
-      - libxt-dev
-      - libzip-dev
+      # - libatk1.0-dev
+      # - libbonoboui2-dev
+      # - libbz2-dev
+      # - libcairo2-dev
+      # - libdbd-mysql-perl
+      # - libdbi-perl
+      # - libevent-dev
+      # - libgeos-dev
+      # - libgraphviz-dev
+      # - liblzma-dev
+      # - libncurses5-dev
+      # - libpcre3-dev
+      # - libreadline-dev
+      # - libsqlite-dev
+      # - libssl-dev
+      # - libxml2-dev
+      # - libxpm-dev
+      # - libxslt1-dev
+      # - libxt-dev
+      # - libzip-dev
       - make
       - make
       - mtr
