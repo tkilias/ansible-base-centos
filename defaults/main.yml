@@ -13,6 +13,7 @@ base_centos:
       - http://fishshell.com/files/linux/RedHat_RHEL-6/fish.release:2.repo
 
     yum_packages:
+      - ack
       - automake
       - bzip2
       - cmake
@@ -64,12 +65,12 @@ base_centos:
       - zsh
 
     source_packages:
-      bin:
-        - name: ack
-          full_name: ack-2.12-single-file
-          src: http://beyondgrep.com/ack-2.12-single-file
-          tmp_bin: /tmp/ack-2.12-single-file
-          bin: /usr/local/bin/ack
+      # bin:
+      #   - name: ack
+      #     full_name: ack-2.12-single-file
+      #     src: http://beyondgrep.com/ack-2.12-single-file
+      #     tmp_bin: /tmp/ack-2.12-single-file
+      #     bin: /usr/local/bin/ack
       git:
         - name: the_silver_searcher
           full_name: the_silver_searcher
