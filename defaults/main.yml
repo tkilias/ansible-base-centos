@@ -51,3 +51,46 @@ base_centos:
       - vnstat
       - zlib1g-dev
       - zsh
+
+    source_packages:
+      tar:
+        - name: ruby
+          full_name: ruby-2.0.0-p353
+          directory: /tmp/ruby-2.0.0-p353
+          src: ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p353.tar.gz
+          configure_command: ./configure --disable-install-rdoc
+          configure_creates: /tmp/ruby-2.0.0-p353/Makefile
+          make_command: make
+          make_creates: /tmp/ruby-2.0.0-p353/ruby
+          make_install_command: make install
+          make_install_creates: /usr/local/bin/ruby
+      git:
+        - name: the_silver_searcher
+          full_name: the_silver_searcher
+          directory: /tmp/the_silver_searcher
+          src: git://github.com/ggreer/the_silver_searcher.git
+          configure_command: ./build.sh
+          configure_creates: /tmp/the_silver_searcher/Makefile
+          make_command: make
+          make_creates: /tmp/the_silver_searcher/ag
+          make_install_command: make install
+          make_install_creates: /usr/local/bin/ag
+
+  python_packages:
+    requirements:
+      - Fabric
+      - boto
+      - bpython
+      - dulwich
+      - flake8
+      - glances
+      - httpie
+      - mercurial
+      - pip-tools
+      - psdash
+      - psutil
+      - see
+      - six
+      - uWSGI
+      - virtualenv
+      - virtualenvwrapper
