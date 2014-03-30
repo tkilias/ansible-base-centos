@@ -40,8 +40,8 @@ base_centos:
       - libevent
       - libevent-devel
       - libxml2-devel
-      - libxpm
-      - libxpm-devel
+      - libXpm
+      - libXpm-devel
       - libxslt
       - libxslt-devel
       - libzip
