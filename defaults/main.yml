@@ -6,6 +6,9 @@ base_centos:
     rpm_keys:
       - http://apt.sw.be/RPM-GPG-KEY.dag.txt
 
+    rpm_packages:
+      - http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+
     yum_repositories:
       - http://fishshell.com/files/linux/RedHat_RHEL-6/fish.release:2.repo
 
