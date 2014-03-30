@@ -53,7 +53,7 @@ base_centos:
       - ncdu
       - nmap
       - openssl
-      - pkg-config
+      - pkgconfig
       - python-dev
       - python-setuptools
       - sqlite
