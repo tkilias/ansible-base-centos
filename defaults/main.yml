@@ -1,2 +1,53 @@
+# file: defaults/main.yml
+
 ---
-# defaults file for base_centos
+base_centos:
+  common:
+    yum_packages:
+      - ack-grep
+      - automake
+      - build-essential
+      - bzip2
+      - cmake
+      - coreutils
+      - exuberant-ctags
+      - fish
+      - git
+      - graphviz
+      - htop
+      - libatk1.0-dev
+      - libbonoboui2-dev
+      - libbz2-dev
+      - libcairo2-dev
+      - libdbd-mysql-perl
+      - libdbi-perl
+      - libevent-dev
+      - libgeos-dev
+      - libgraphviz-dev
+      - liblzma-dev
+      - libncurses5-dev
+      - libpcre3-dev
+      - libreadline-dev
+      - libsqlite-dev
+      - libssl-dev
+      - libxml2-dev
+      - libxpm-dev
+      - libxslt1-dev
+      - libxt-dev
+      - libzip-dev
+      - make
+      - mtr
+      - ncdu
+      - nmap
+      - openssl
+      - pkg-config
+      - python-dev
+      - python-setuptools
+      - sqlite
+      - swig
+      - tmux
+      - unzip
+      - vim-nox
+      - vnstat
+      - zlib1g-dev
+      - zsh

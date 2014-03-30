@@ -1,2 +1,4 @@
+# file: tasks/main.yml
+
 ---
-# tasks file for base_centos
+- include: common.yml
