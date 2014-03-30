@@ -15,48 +15,58 @@ base_centos:
 
     yum_packages:
       - ack
+      - atk-devel
       - automake
       - bzip2
+      - bzip2-devel
+      - cairo-devel
       - cmake
       - coreutils
       - ctags-etags
       - fish
       - gcc
       - gcc-c++
+      - geos
+      - geos-devel
       - git
       - graphviz
+      - graphviz-devel
       - htop
       - kernel-devel
-      # - libatk1.0-dev
-      # - libbonoboui2-dev
-      # - libbz2-dev
-      # - libcairo2-dev
-      # - libdbd-mysql-perl
-      # - libdbi-perl
-      # - libevent-dev
-      # - libgeos-dev
-      # - libgraphviz-dev
-      # - liblzma-dev
-      # - libncurses5-dev
-      # - libpcre3-dev
-      # - libreadline-dev
-      # - libsqlite-dev
-      # - libssl-dev
-      # - libxml2-dev
-      # - libxpm-dev
-      # - libxslt1-dev
-      # - libxt-dev
-      # - libzip-dev
+      - libXt
+      - libXt-devel
+      - libbonobo
+      - libbonobo-devel
+      - libevent
+      - libevent-devel
+      - libxml2-devel
+      - libxpm
+      - libxpm-devel
+      - libxslt
+      - libxslt-devel
+      - libzip
+      - libzip-devel
+      - lzma
+      - lzma-devel
       - make
       - make
       - mtr
       - ncdu
+      - ncurses
+      - ncurses-devel
       - nmap
       - openssl
+      - openssl
+      - openssl-devel
+      - pcre
+      - pcre-devel
       - pkgconfig
       - python-devel
       - python-setuptools
+      - readline
+      - readline-devel
       - sqlite
+      - sqlite-devel
       - swig
       - tmux
       - unzip
