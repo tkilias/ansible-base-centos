@@ -3,6 +3,9 @@
 ---
 base_centos:
   common:
+    yum_repositories:
+      - http://fishshell.com/files/linux/RedHat_RHEL-6/fish.release:2.repo
+
     yum_packages:
       - automake
       - bzip2

@@ -1,6 +1,10 @@
 # file: tasks/common.yml
 
 ---
+- name: common | yum-config-manager --add-repo yum_repositories
+  command: "yum-config-manager --add-repo {{ item }}"
+  with_items: base_centos.common.yum_repositories
+
 - name: common | yum install yum_packages
   yum: pkg={{ item }} state=present
   with_items: base_centos.common.yum_packages
