@@ -1,6 +1,10 @@
 # file: tasks/common.yml
 
 ---
+- name: common | rpm --import rpm_keys
+  rpm_key: key={{ item }} state=present
+  with_items: base_centos.common.rpm_keys
+
 - name: common | yum-config-manager --add-repo yum_repositories
   command: "yum-config-manager --add-repo {{ item }}"
   with_items: base_centos.common.yum_repositories

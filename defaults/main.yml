@@ -3,6 +3,9 @@
 ---
 base_centos:
   common:
+    rpm_keys:
+      - http://apt.sw.be/RPM-GPG-KEY.dag.txt
+
     yum_repositories:
       - http://fishshell.com/files/linux/RedHat_RHEL-6/fish.release:2.repo
 
