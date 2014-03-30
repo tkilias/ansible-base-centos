@@ -8,6 +8,7 @@ base_centos:
 
     rpm_packages:
       - http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
+      - http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 
     yum_repositories:
       - http://fishshell.com/files/linux/RedHat_RHEL-6/fish.release:2.repo
