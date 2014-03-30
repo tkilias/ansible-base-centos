@@ -4,17 +4,18 @@
 base_centos:
   common:
     yum_packages:
-      - ack-grep
       - automake
-      - build-essential
       - bzip2
       - cmake
       - coreutils
-      - exuberant-ctags
+      - ctags-etags
       - fish
+      - gcc
+      - gcc-c++
       - git
       - graphviz
       - htop
+      - kernel-devel
       - libatk1.0-dev
       - libbonoboui2-dev
       - libbz2-dev
@@ -35,6 +36,7 @@ base_centos:
       - libxslt1-dev
       - libxt-dev
       - libzip-dev
+      - make
       - make
       - mtr
       - ncdu
