@@ -127,11 +127,11 @@ base_centos:
       - bpython
       - dulwich
       - flake8
-      - glances
+      # - glances
       - httpie
       - mercurial
       - pip-tools
-      - psdash
+      # - psdash
       - psutil
       - see
       - six
