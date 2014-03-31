@@ -49,7 +49,7 @@ base_centos:
       - lzma
       - lzma-devel
       - make
-      - make
+      - mercurial
       - mtr
       - ncdu
       - ncurses
@@ -61,16 +61,17 @@ base_centos:
       - pcre
       - pcre-devel
       - pkgconfig
+      - python
       - python-devel
       - python-setuptools
       - readline
       - readline-devel
+      - ruby
       - sqlite
       - sqlite-devel
       - swig
       - tmux
       - unzip
-      - vim-nox
       - vnstat
       - zlib1g-dev
       - zsh
@@ -82,6 +83,17 @@ base_centos:
       #     src: http://beyondgrep.com/ack-2.12-single-file
       #     tmp_bin: /tmp/ack-2.12-single-file
       #     bin: /usr/local/bin/ack
+      hg:
+        - name: vim
+          full_name: vim
+          directory: /tmp/vim
+          src: https://code.google.com/p/vim/
+          configure_command: ./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --enable-cscope
+          configure_creates: /tmp/vim/src/auto/config.mk
+          make_command: make
+          make_creates: /tmp/vim/src/vim
+          make_install_command: make install
+          make_install_creates: /usr/local/bin/vim
       git:
         - name: the_silver_searcher
           full_name: the_silver_searcher
