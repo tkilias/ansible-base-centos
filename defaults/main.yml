@@ -126,7 +126,7 @@ base_centos:
           configure_command: ./bootstrap
           configure_creates: /tmp/cmake-2.8.12.2/Makefile
           make_command: make
-          make_creates: /tmp/cmake-2.8.12.2/cmake
+          make_creates: /tmp/cmake-2.8.12.2/bin/cmake
           make_install_command: make install
           make_install_creates: /usr/local/bin/cmake
 
