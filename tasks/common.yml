@@ -2,7 +2,7 @@
 
 ---
 - name: common | templates
-  template: src={{ item.src }} dest={{ item.dest }} owner={{ item.user }} group={{ item.group }} mode={{ item.mode }}
+  template: src={{ item.src }} dest={{ item.dest }} owner={{ item.owner }} group={{ item.group }} mode={{ item.mode }}
   with_items: base_centos.common.templates
 
 - name: common | rpm --import rpm_keys
