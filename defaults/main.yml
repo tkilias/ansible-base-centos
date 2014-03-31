@@ -73,6 +73,8 @@ base_centos:
       - tmux
       - unzip
       - vnstat
+      - xz
+      - xz-devel
       - zlib
       - zlib-devel
       - zsh
