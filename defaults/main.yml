@@ -3,6 +3,14 @@
 ---
 base_centos:
   common:
+    templates:
+      - name: /etc/sudoers
+        src: etc/sudoers
+        dest: /etc/sudoers
+        owner: root
+        group: root
+        mode: '0440'
+
     rpm_keys:
       - http://apt.sw.be/RPM-GPG-KEY.dag.txt
 
