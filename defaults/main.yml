@@ -57,7 +57,6 @@ base_centos:
       - lzma
       - lzma-devel
       - make
-      - mercurial
       - mtr
       - ncdu
       - ncurses
