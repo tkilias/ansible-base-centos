@@ -93,6 +93,27 @@ base_centos:
       #     src: http://beyondgrep.com/ack-2.12-single-file
       #     tmp_bin: /tmp/ack-2.12-single-file
       #     bin: /usr/local/bin/ack
+      tar:
+        - name: ruby
+          full_name: ruby-2.0.0-p353
+          directory: /tmp/ruby-2.0.0-p353
+          src: ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p353.tar.gz
+          configure_command: ./configure --disable-install-rdoc
+          configure_creates: /tmp/ruby-2.0.0-p353/Makefile
+          make_command: make
+          make_creates: /tmp/ruby-2.0.0-p353/ruby
+          make_install_command: make install
+          make_install_creates: /usr/local/bin/ruby
+        - name: cmake
+          full_name: cmake-2.8.12.2
+          directory: /tmp/cmake-2.8.12.2
+          src: http://www.cmake.org/files/v2.8/cmake-2.8.12.2.tar.gz
+          configure_command: ./bootstrap
+          configure_creates: /tmp/cmake-2.8.12.2/Makefile
+          make_command: make
+          make_creates: /tmp/cmake-2.8.12.2/bin/cmake
+          make_install_command: make install
+          make_install_creates: /usr/local/bin/cmake
       hg:
         - name: vim
           full_name: vim
@@ -115,27 +136,6 @@ base_centos:
           make_creates: /tmp/the_silver_searcher/ag
           make_install_command: make install
           make_install_creates: /usr/local/bin/ag
-      tar:
-        - name: ruby
-          full_name: ruby-2.0.0-p353
-          directory: /tmp/ruby-2.0.0-p353
-          src: ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p353.tar.gz
-          configure_command: ./configure --disable-install-rdoc
-          configure_creates: /tmp/ruby-2.0.0-p353/Makefile
-          make_command: make
-          make_creates: /tmp/ruby-2.0.0-p353/ruby
-          make_install_command: make install
-          make_install_creates: /usr/local/bin/ruby
-        - name: cmake
-          full_name: cmake-2.8.12.2
-          directory: /tmp/cmake-2.8.12.2
-          src: http://www.cmake.org/files/v2.8/cmake-2.8.12.2.tar.gz
-          configure_command: ./bootstrap
-          configure_creates: /tmp/cmake-2.8.12.2/Makefile
-          make_command: make
-          make_creates: /tmp/cmake-2.8.12.2/bin/cmake
-          make_install_command: make install
-          make_install_creates: /usr/local/bin/cmake
 
   python_packages:
     requirements:

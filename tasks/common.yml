@@ -31,61 +31,53 @@
 # /python packages -------------------------------------------------------- }}}
 
 # source packages --------------------------------------------------------- {{{
-# - name: common | curl source_packages.bin
-#   shell: "curl {{ item.src }} creates={{ item.tmp_bin }}"
-#   with_items: base_centos.common.source_packages.bin
+- name: common | curl source_packages.tar
+  shell: "curl {{ item.src }} | tar xz chdir=/tmp creates={{ item.directory }}"
+  with_items: base_centos.common.source_packages.tar
+
+- name: common | ./configure source_packages.tar
+  command: "{{ item.configure_command }} chdir={{ item.directory }} creates={{ item.configure_creates }}"
+  with_items: base_centos.common.source_packages.tar
+
+- name: common | make source_packages.tar
+  command: "{{ item.make_command }} chdir={{ item.directory }} creates={{ item.make_creates }}"
+  with_items: base_centos.common.source_packages.tar
+
+- name: common | make install source_packages.tar
+  command: "{{ item.make_install_command }} chdir={{ item.directory }} creates={{ item.make_install_creates }}"
+  with_items: base_centos.common.source_packages.tar
 
 - name: common | hg clone source_packages.hg
   hg: repo={{ item.src }} dest={{ item.directory }}
+  with_items: base_centos.common.source_packages.hg
+
+- name: common | ./configure source_packages.hg
+  command: "{{ item.configure_command }} chdir={{ item.directory }} creates={{ item.configure_creates }}"
+  with_items: base_centos.common.source_packages.hg
+
+- name: common | make source_packages.hg
+  command: "{{ item.make_command }} chdir={{ item.directory }} creates={{ item.make_creates }}"
+  with_items: base_centos.common.source_packages.hg
+
+- name: common | make install source_packages.hg
+  command: "{{ item.make_install_command }} chdir={{ item.directory }} creates={{ item.make_install_creates }}"
   with_items: base_centos.common.source_packages.hg
 
 - name: common | git clone source_packages.git
   git: repo={{ item.src }} dest={{ item.directory }}
   with_items: base_centos.common.source_packages.git
 
-- name: common | curl source_packages.tar
-  shell: "curl {{ item.src }} | tar xz chdir=/tmp creates={{ item.directory }}"
-  with_items: base_centos.common.source_packages.tar
-
-# - name: common | create binaries
-#   shell: "cp {{ item.tmp_bin }} {{ item.bin }} creates={{ item.bin }}"
-#   with_items: base_centos.common.source_packages.bin
-
-- name: common | ./configure source_packages.hg
-  command: "{{ item.configure_command }} chdir={{ item.directory }} creates={{ item.configure_creates }}"
-  with_items: base_centos.common.source_packages.hg
-
 - name: common | ./configure source_packages.git
   command: "{{ item.configure_command }} chdir={{ item.directory }} creates={{ item.configure_creates }}"
   with_items: base_centos.common.source_packages.git
-
-- name: common | ./configure source_packages.tar
-  command: "{{ item.configure_command }} chdir={{ item.directory }} creates={{ item.configure_creates }}"
-  with_items: base_centos.common.source_packages.tar
-
-- name: common | make source_packages.hg
-  command: "{{ item.make_command }} chdir={{ item.directory }} creates={{ item.make_creates }}"
-  with_items: base_centos.common.source_packages.hg
 
 - name: common | make source_packages.git
   command: "{{ item.make_command }} chdir={{ item.directory }} creates={{ item.make_creates }}"
   with_items: base_centos.common.source_packages.git
 
-- name: common | make source_packages.tar
-  command: "{{ item.make_command }} chdir={{ item.directory }} creates={{ item.make_creates }}"
-  with_items: base_centos.common.source_packages.tar
-
-- name: common | make install source_packages.hg
-  command: "{{ item.make_install_command }} chdir={{ item.directory }} creates={{ item.make_install_creates }}"
-  with_items: base_centos.common.source_packages.hg
-
 - name: common | make install source_packages.git
   command: "{{ item.make_install_command }} chdir={{ item.directory }} creates={{ item.make_install_creates }}"
   with_items: base_centos.common.source_packages.git
-
-- name: common | make install source_packages.tar
-  command: "{{ item.make_install_command }} chdir={{ item.directory }} creates={{ item.make_install_creates }}"
-  with_items: base_centos.common.source_packages.tar
 # /source packages -------------------------------------------------------- }}}
 
 # ruby gems --------------------------------------------------------------- {{{
