@@ -21,6 +21,15 @@
   yum: pkg={{ item }} state=present
   with_items: base_centos.common.yum_packages
 
+# python packages --------------------------------------------------------- {{{
+- name: common | easy_install pip
+  easy_install: name=pip
+
+- name: common | pip install python_packages.requirements
+  pip: name={{ item }} state=present
+  with_items: base_centos.python_packages.requirements
+# /python packages -------------------------------------------------------- }}}
+
 # source packages --------------------------------------------------------- {{{
 # - name: common | curl source_packages.bin
 #   shell: "curl {{ item.src }} creates={{ item.tmp_bin }}"
@@ -78,15 +87,6 @@
   command: "{{ item.make_install_command }} chdir={{ item.directory }} creates={{ item.make_install_creates }}"
   with_items: base_centos.common.source_packages.tar
 # /source packages -------------------------------------------------------- }}}
-
-# python packages --------------------------------------------------------- {{{
-- name: common | easy_install pip
-  easy_install: name=pip
-
-- name: common | pip install python_packages.requirements
-  pip: name={{ item }} state=present
-  with_items: base_centos.python_packages.requirements
-# /python packages -------------------------------------------------------- }}}
 
 # ruby gems --------------------------------------------------------------- {{{
 - name: common | gem install bundler
