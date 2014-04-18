@@ -87,12 +87,6 @@ base_centos:
       - zsh
 
     source_packages:
-      # bin:
-      #   - name: ack
-      #     full_name: ack-2.12-single-file
-      #     src: http://beyondgrep.com/ack-2.12-single-file
-      #     tmp_bin: /tmp/ack-2.12-single-file
-      #     bin: /usr/local/bin/ack
       tar:
         - name: ruby
           full_name: ruby-2.0.0-p353
