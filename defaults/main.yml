@@ -89,13 +89,13 @@ base_centos:
     source_packages:
       tar:
         - name: ruby
-          full_name: ruby-2.0.0-p353
-          directory: /tmp/ruby-2.0.0-p353
-          src: ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p353.tar.gz
+          full_name: ruby-2.0.0-p451
+          directory: /tmp/ruby-2.0.0-p451
+          src: ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p451.tar.gz
           configure_command: ./configure --disable-install-rdoc
-          configure_creates: /tmp/ruby-2.0.0-p353/Makefile
+          configure_creates: /tmp/ruby-2.0.0-p451/Makefile
           make_command: make
-          make_creates: /tmp/ruby-2.0.0-p353/ruby
+          make_creates: /tmp/ruby-2.0.0-p451/ruby
           make_install_command: make install
           make_install_creates: /usr/local/bin/ruby
         - name: cmake
