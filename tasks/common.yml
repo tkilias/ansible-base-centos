@@ -3,84 +3,84 @@
 ---
 - name: common | templates
   template: src={{ item.src }} dest={{ item.dest }} owner={{ item.owner }} group={{ item.group }} mode={{ item.mode }}
-  with_items: base_centos.common.templates
+  with_items: {{ base_centos.common.templates | default([]) }}
 
 - name: common | rpm --import rpm_keys
   rpm_key: key={{ item }} state=present
-  with_items: base_centos.common.rpm_keys
+  with_items: {{ base_centos.common.rpm_keys | default([]) }}
 
 - name: common | rpm -i rpm_packages
   yum: name={{ item }} state=present
-  with_items: base_centos.common.rpm_packages
+  with_items: {{ base_centos.common.rpm_packages | default([]) }}
 
 - name: common | yum-config-manager --add-repo yum_repositories
   command: "yum-config-manager --add-repo {{ item }}"
-  with_items: base_centos.common.yum_repositories
+  with_items: {{ base_centos.common.yum_repositories | default([]) }}
 
 - name: common | yum install yum_packages
   yum: pkg={{ item }} state=present
-  with_items: base_centos.common.yum_packages
+  with_items: {{ base_centos.common.yum_packages | default([]) }}
 
-# python packages --------------------------------------------------------- {{{
+# python packages ---------------------------------------------------------
 - name: common | easy_install pip
   easy_install: name=pip
 
 - name: common | pip install python_packages.requirements
   pip: name={{ item }} state=present
-  with_items: base_centos.python_packages.requirements
-# /python packages -------------------------------------------------------- }}}
+  with_items: {{ base_centos.python_packages.requirements | default([]) }}
+# /python packages --------------------------------------------------------
 
-# source packages --------------------------------------------------------- {{{
+# source packages ---------------------------------------------------------
 - name: common | curl source_packages.tar
   shell: "curl {{ item.src }} | tar xz chdir=/tmp creates={{ item.directory }}"
-  with_items: base_centos.common.source_packages.tar
+  with_items: {{ base_centos.common.source_packages.tar | default([]) }}
 
 - name: common | ./configure source_packages.tar
   command: "{{ item.configure_command }} chdir={{ item.directory }} creates={{ item.configure_creates }}"
-  with_items: base_centos.common.source_packages.tar
+  with_items: {{ base_centos.common.source_packages.tar | default([]) }}
 
 - name: common | make source_packages.tar
   command: "{{ item.make_command }} chdir={{ item.directory }} creates={{ item.make_creates }}"
-  with_items: base_centos.common.source_packages.tar
+  with_items: {{ base_centos.common.source_packages.tar | default([]) }}
 
 - name: common | make install source_packages.tar
   command: "{{ item.make_install_command }} chdir={{ item.directory }} creates={{ item.make_install_creates }}"
-  with_items: base_centos.common.source_packages.tar
+  with_items: {{ base_centos.common.source_packages.tar | default([]) }}
 
 - name: common | hg clone source_packages.hg
   hg: repo={{ item.src }} dest={{ item.directory }}
-  with_items: base_centos.common.source_packages.hg
+  with_items: {{ base_centos.common.source_packages.hg | default([]) }}
 
 - name: common | ./configure source_packages.hg
   command: "{{ item.configure_command }} chdir={{ item.directory }} creates={{ item.configure_creates }}"
-  with_items: base_centos.common.source_packages.hg
+  with_items: {{ base_centos.common.source_packages.hg | default([]) }}
 
 - name: common | make source_packages.hg
   command: "{{ item.make_command }} chdir={{ item.directory }} creates={{ item.make_creates }}"
-  with_items: base_centos.common.source_packages.hg
+  with_items: {{ base_centos.common.source_packages.hg | default([]) }}
 
 - name: common | make install source_packages.hg
   command: "{{ item.make_install_command }} chdir={{ item.directory }} creates={{ item.make_install_creates }}"
-  with_items: base_centos.common.source_packages.hg
+  with_items: {{ base_centos.common.source_packages.hg | default([]) }}
 
 - name: common | git clone source_packages.git
   git: repo={{ item.src }} dest={{ item.directory }}
-  with_items: base_centos.common.source_packages.git
+  with_items: {{ base_centos.common.source_packages.git | default([]) }}
 
 - name: common | ./configure source_packages.git
   command: "{{ item.configure_command }} chdir={{ item.directory }} creates={{ item.configure_creates }}"
-  with_items: base_centos.common.source_packages.git
+  with_items: {{ base_centos.common.source_packages.git | default([]) }}
 
 - name: common | make source_packages.git
   command: "{{ item.make_command }} chdir={{ item.directory }} creates={{ item.make_creates }}"
-  with_items: base_centos.common.source_packages.git
+  with_items: {{ base_centos.common.source_packages.git | default([]) }}
 
 - name: common | make install source_packages.git
   command: "{{ item.make_install_command }} chdir={{ item.directory }} creates={{ item.make_install_creates }}"
-  with_items: base_centos.common.source_packages.git
-# /source packages -------------------------------------------------------- }}}
+  with_items: {{ base_centos.common.source_packages.git | default([]) }}
+# /source packages --------------------------------------------------------
 
-# ruby gems --------------------------------------------------------------- {{{
+# ruby gems --------------------------------------------------------------- 
 - name: common | gem install bundler
   command: /usr/local/bin/gem install bundler creates=/usr/local/bin/bundle
-# /ruby gems -------------------------------------------------------------- }}}
+# /ruby gems -------------------------------------------------------------
