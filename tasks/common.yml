@@ -25,6 +25,9 @@
   yum: pkg="{{ item }}" state=present
   with_items: "{{ base_centos.common.yum_packages | default([]) }}"
 
+- name: common | yum update all
+  yum: pkg="*" state=latest
+  
 # python packages ---------------------------------------------------------
 - name: common | easy_install pip
   easy_install: name=pip
